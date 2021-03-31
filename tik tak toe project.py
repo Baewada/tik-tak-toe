@@ -3,9 +3,6 @@
 
 # **Step 1: Write a function that can print out a board. Set up your board as a list, where each index 1-9 corresponds with a number on a number pad, so you get a 3 by 3 board representation.**
 
-# In[1]:
-
-
 from IPython.display import clear_output
 
 def display_board(board):
@@ -24,19 +21,7 @@ def display_board(board):
     print('   |   |')
 
 
-# **TEST Step 1:** run your function on a test version of the board list, and make adjustments as necessary
-
-# In[2]:
-
-
-test_board = ['#','X','O','X','O','X','O','X','O','X']
-display_board(test_board)
-
-
 # **Step 2: Write a function that can take in a player input and assign their marker as 'X' or 'O'. Think about using *while* loops to continually ask until you get a correct answer.**
-
-# In[3]:
-
 
 def player_input():
     marker = ''
@@ -49,37 +34,14 @@ def player_input():
     else:
         return ('O', 'X')
 
-
-# **TEST Step 2:** run the function to make sure it returns the desired output
-
-# In[4]:
-
-
-player_input()
-
-
 # **Step 3: Write a function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.**
-
-# In[5]:
-
 
 def place_marker(board, marker, position):
     board[position] = marker
 
 
-# **TEST Step 3:** run the place marker function using test parameters and display the modified board
-
-# In[6]:
-
-
-place_marker(test_board,'$',8)
-display_board(test_board)
-
 
 # **Step 4: Write a function that takes in a board and checks to see if someone has won. **
-
-# In[ ]:
-
 
 def win_check(board,mark):
     
@@ -92,18 +54,10 @@ def win_check(board,mark):
     (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
 
-
-# **TEST Step 4:** run the win_check function against our test_board - it should return True
-
-# In[ ]:
-
-
 win_check(test_board,'X')
 
 
-# **Step 5: Write a function that uses the random module to randomly decide which player goes first. You may want to lookup random.randint() Return a string of which player went first.**
-
-# In[9]:
+# **Step 5: Write a function that uses the random module to randomly decide which player goes first.** 
 
 
 import random
@@ -117,18 +71,12 @@ def choose_first():
 
 # **Step 6: Write a function that returns a boolean indicating whether a space on the board is freely available.**
 
-# In[10]:
-
-
 def space_check(board, position):
     
     return board[position] == ' '
 
 
 # **Step 7: Write a function that checks if the board is full and returns a boolean value. True if full, False otherwise.**
-
-# In[11]:
-
 
 def full_board_check(board):
     for i in range(1,10):
@@ -139,7 +87,6 @@ def full_board_check(board):
 
 # **Step 8: Write a function that asks for a player's next position (as a number 1-9) and then uses the function from step 6 to check if its a free position. If it is, then return the position for later use. **
 
-# In[12]:
 
 
 def player_choice(board):
@@ -153,18 +100,12 @@ def player_choice(board):
 
 # **Step 9: Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.**
 
-# In[13]:
-
-
 def replay():
     
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 
 
 # **Step 10: Here comes the hard part! Use while loops and the functions you've made to run the game!**
-
-# In[14]:
-
 
 print('Welcome to Tic Tac Toe!')
 
@@ -175,7 +116,7 @@ while True:
     turn = choose_first()
     print(turn + ' will go first.')
     
-    play_game = input('Are you ready to play? Enter Yes or No.')
+    play_game = input('Are you ready to play? Enter y[Yes] or n[No].')
     
     if play_game.lower()[0] == 'y':
         game_on = True
@@ -225,4 +166,4 @@ while True:
         break
 
 
-# ## Good Job!
+# EOF!!
